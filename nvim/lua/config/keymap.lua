@@ -1,0 +1,4 @@
+-- LazyVim's own defaults (including <leader>gg for lazygit):
+-- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+--
+-- vim.keymap.set("n", "<leader>rr", "<cmd>!bin/rails routes<cr>", { desc = "Rails routes" })

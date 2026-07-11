@@ -1,0 +1,68 @@
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="agnoster"
+DISABLE_AUTO_UPDATE="false"
+COMPLETION_WAITING_DOTS="true"
+
+plugins=(
+  git
+  docker
+  docker-compose
+  bundler
+  rails
+  ruby
+  fzf
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+source "$ZSH/oh-my-zsh.sh"
+
+export EDITOR="nvim"
+export VISUAL="nvim"
+export LANG="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+setopt HIST_IGNORE_SPACE
+
+# Homebrew — Apple Silicon macOS, Intel macOS, or Linuxbrew, whichever exists
+if [ -d /opt/homebrew/bin ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -d /usr/local/bin ] && [ -x /usr/local/bin/brew ]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+elif [ -d /home/linuxbrew/.linuxbrew/bin ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+# libpq is keg-only (needed for the `pg` gem / psql client — Rails + Postgres)
+if command -v brew >/dev/null 2>&1 && brew --prefix libpq >/dev/null 2>&1; then
+  export PATH="$(brew --prefix libpq)/bin:$PATH"
+fi
+
+# bun — installed via the oven-sh/bun tap above, so the binary is already on PATH
+# through brew shellenv; this just sets bun's own install/global dir.
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pnpm — global package/bin directory
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# Debian/Ubuntu package fd under a different binary name
+command -v fdfind >/dev/null 2>&1 && alias fd=fdfind
+
+command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# ---- Aliases -----------------------------------------------------------------------
+alias vim="nvim"
+alias vi="nvim"
+alias lg="lazygit"
+
+alias ll="ls -lah"
+alias la="ls -A"
+alias ..="cd .."
+alias ...="cd ../.."
+
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"

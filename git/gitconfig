@@ -1,0 +1,45 @@
+[user]
+	name = Alban
+	email = marguet.alban@gmail.com
+
+[core]
+	editor = nvim
+	autocrlf = input
+	excludesfile = ~/.gitignore_global
+	pager = less -FirSwX
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+	default = current
+
+[fetch]
+	prune = true
+
+[color]
+	ui = auto
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
+
+[alias]
+	st = status -sb
+	co = checkout
+	br = branch
+	ci = commit
+	unstage = restore --staged
+	last = log -1 HEAD
+	lg = log --oneline --graph --decorate --all
+	amend = commit --amend --no-edit
+
+[credential]
+	# macOS default (Keychain). On Linux, swap for: cache --timeout=28800
+	helper = osxkeychain
