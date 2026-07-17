@@ -33,6 +33,8 @@ link_dotfiles() {
   link "$DOTFILES_DIR/git/gitignore_global" "$HOME/.gitignore_global"
   link "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
   link "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+  link "$DOTFILES_DIR/aerospace/aerospace.toml" "$HOME/.aerospace.toml"
+  link "$DOTFILES_DIR/sketchybar" "$HOME/.config/sketchybar"
 }
 
 # ---- package installation ----------------------------------------------------

@@ -1,14 +1,20 @@
 # Installed with: brew bundle --file=Brewfile
 # https://github.com/Homebrew/homebrew-bundle
 
+tap 'nikitabobko/tap'      # AeroSpace
+tap 'FelixKratz/formulae'  # SketchyBar
+
+brew 'FelixKratz/formulae/sketchybar', trusted: true
+brew 'FelixKratz/formulae/borders', trusted: true
+cask 'nikitabobko/tap/aerospace', trusted: true
+
 brew 'oven-sh/bun/bun', trusted: true
 
 # ---- Terminal -------------------------------------------------------------------
 cask 'ghostty'
 cask 'visual-studio-code'
 cask 'docker-desktop'
-
-# ---- Fonts ----------------------------------------------------------------------
+cask 'raycast'
 cask 'font-jetbrains-mono-nerd-font'
 
 # ---- Core CLI tools ---------------------------------------------------------------
