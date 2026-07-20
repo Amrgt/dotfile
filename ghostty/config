@@ -36,7 +36,13 @@ keybind = cmd+alt+right=goto_split:right
 keybind = cmd+alt+up=goto_split:top
 keybind = cmd+alt+down=goto_split:bottom
 
+keybind = cmd+alt+h=goto_split:left
+keybind = cmd+alt+l=goto_split:right
+keybind = cmd+alt+k=goto_split:top
+keybind = cmd+alt+j=goto_split:bottom
+
 # ---- Machine-specific overrides ------------------------------------------------------
 # Drop overrides in ~/.config/ghostty/local (not tracked by dotfiles) — the "?" means
 # Ghostty won't complain if the file doesn't exist.
 config-file = ?local
+macos-option-as-alt = true
