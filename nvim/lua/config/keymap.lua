@@ -7,6 +7,11 @@ vim.keymap.set("n", "<leader><delete>", function()
 end, { desc = "Close Buffer" })
 vim.keymap.set("n", "<leader><CR>", "<cmd>%bd<cr>", { desc = "Close All Buffers" })
 
+-- Move around (keep the cursor center)
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+
 -- smart-splits.nvim: override LazyVim's default <C-hjkl> window nav so it also
 -- crosses into tmux panes. Plugin loads eagerly (see plugins/smart-splits.lua),
 -- so require() here is safe by the time this file runs on VeryLazy.

@@ -12,4 +12,8 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 
+-- No format-on-save: projects keep their own style; format manually with
+-- <leader>cf, or re-enable per session with <leader>uf.
+vim.g.autoformat = false
+
 -- vim.g.lazyvim_ruby_lsp = "solargraph"
